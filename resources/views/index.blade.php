@@ -144,7 +144,8 @@
 
             $modal.on('hidden.bs.modal', function() {
                 if ($checkbox.is(':checked')) {
-                    document.cookie = "notshow=true; path=/; max-age=" + 60 * 60 * 24 * 365;
+                    document.cookie = "notshow_breeze2025YearEnd=true; path=/; max-age=" + 60 * 60 * 24 *
+                        365;
                 }
             });
         });

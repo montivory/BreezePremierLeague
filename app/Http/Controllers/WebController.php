@@ -32,7 +32,7 @@ class WebController extends Controller
 
     public function index(Request $request)
     {
-        $notshow = $request->cookie('notshow');
+        $notshow = $request->cookie('notshow_breeze2025YearEnd');
         if ($notshow === 'true') {
             $notshow = true;
         } else {

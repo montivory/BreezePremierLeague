@@ -22,7 +22,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
         // Disable encryption for specific cookies
         $middleware->encryptCookies(except: [
-            'notshow',
+            'notshow_breeze2025YearEnd',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
