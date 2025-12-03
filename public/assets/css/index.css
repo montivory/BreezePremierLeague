@@ -2,7 +2,6 @@ main {
   background: var(--Breeze-BG, #190c37);
 }
 .content-block {
-  /* background-color: #df1a22; */
   padding: 0 !important;
   margin-top: 0 !important;
 }
@@ -51,7 +50,7 @@ main {
 }
 a,
 a:hover {
-  color: var(--Black-100, #000);
+  color: var(--Black-100, #000) !important;
   word-break: break-all;
 }
 .form-check-label {
