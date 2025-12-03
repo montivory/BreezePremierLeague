@@ -5,7 +5,6 @@ use App\Http\Controllers\LineController;
 use App\Http\Controllers\Admin\MemberManagerController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SlipManagerController;
-use App\Http\Controllers\Admin\WinnerController;
 use Illuminate\Support\Facades\Route;
 
 /*
