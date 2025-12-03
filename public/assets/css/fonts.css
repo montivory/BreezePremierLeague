@@ -1,0 +1,102 @@
+@font-face {
+    src: url(./../font/Prompt-Thin.ttf);
+    font-family: "Prompt";
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    src: url(./../font/Prompt-Light.ttf);
+    font-family: "Prompt";
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    src: url(./../font/Prompt-Regular.ttf);
+    font-family: "Prompt";
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    src: url(./../font/Prompt-Medium.ttf);
+    font-family: "Prompt";
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    src: url(./../font/Prompt-SemiBold.ttf);
+    font-family: "Prompt";
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Prompt";
+    font-weight: bold;
+    font-style: normal;
+    src: url(./../font/Prompt-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Noto Sans Thai";
+    font-style: normal;
+    font-weight: normal;
+    src: url(./../font/NotoSansThai-Regular.ttf);
+}
+@font-face {
+    font-family: "Noto Sans Thai";
+    font-style: normal;
+    font-weight: bold;
+    src: url(./../font/NotoSansThai-Bold.ttf);
+}
+@font-face {
+    font-family: "Noto Sans Thai Semibold";
+    font-style: normal;
+    src: url(./../font/NotoSansThai-SemiBold.ttf);
+}
+@font-face {
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: normal;
+    src: url(./../font/Sarabun-Regular.ttf);
+}
+@font-face {
+    font-family: "Sarabun";
+    font-style: italic;
+    font-weight: normal;
+    src: url(./../font/Sarabun-Italic.ttf);
+}
+@font-face {
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: bold;
+    src: url(./../font/Sarabun-Bold.ttf);
+}
+@font-face {
+    font-family: "Sarabun";
+    font-style: italic;
+    font-weight: bold;
+    src: url(./../font/Sarabun-BoldItalic.ttf);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Noto Sans Thai"!important;
+    font-weight: bold;
+}
+.btn {
+    font-family: "Noto Sans Thai"!important;
+    font-weight: bold;
+}
+body,
+p {
+    font-family: "Noto Sans Thai"!important;
+    font-size: normal;
+    font-style: normal;
+}

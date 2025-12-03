@@ -1,0 +1,43 @@
+h1 {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+}
+h6 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+.form-check-input:checked {
+  background-color: #46bdde;
+  border-color: #46bdde;
+}
+.form-label {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+}
+.form-control,
+.form-select,
+.btn-main {
+  height: 48px;
+}
+.term-consent-label {
+  color: var(--White, #fff);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+.btn-clear-red {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  height: 48px;
+}
+.a-link,
+.a-link:hover {
+  color: var(--White, #fff);
+}

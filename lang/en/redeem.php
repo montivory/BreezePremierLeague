@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'redeemdescription' => 'Description',
+    'redeemcondition' => 'Conditions',
+    'success' => 'Success',
+    'pointleft' => 'You have :point points left',
+    'confirmredeem' => 'Confirm Redemption',
+    'usepoint' => 'Use <span class="point-redeem-display">:point</span> points',
+    'point' => 'point',
+    'instock' => 'Instock :amount',
+    'otherprice' => 'Other prizes',
+    'barusepoints' => 'Use :point Points',
+    'barusepoint' => 'Use :point Point',
+    'enoughpoint' => 'Not enough point',
+    'outofstock' => 'Out of stock',
+    'redeembtn' => 'Redeem',
+    'popupamount' => 'Amount',
+    'popuppoint' => 'points(s)',
+    'deliveryaddress' => 'Delivery Address',
+    'adddeliveryaddress' => 'Add delivery address',
+    'confirmbtn' => 'Confirm',
+    'backbtn' => 'Close',
+    'already' => 'Already redeemed',
+    'totalpoint' => '<h3>คะแนนที่แลกของรางวัลได้</h3><h1>:point</h1><h3 class="mb-0">คะแนน</h3>',
+];

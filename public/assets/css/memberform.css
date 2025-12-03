@@ -1,0 +1,65 @@
+.form-label {
+    color: var(--Black, #2d2d2d);
+    font-family: "Noto Sans Thai";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    /* 156.25% */
+}
+
+.form-control-plaintext {
+    color: var(--Black, #2d2d2d);
+
+    /* Desktop/UL H3 SemiBold 20px - 30px */
+    font-family: "Noto Sans Thai";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    /* 150% */
+}
+
+.btn-back,
+.btn-cancelmodal {
+    border: 1px solid var(--System-Semi-Black, #151515);
+    background: var(--Color-Stlye-Primary-White-100, #fff);
+    color: #000;
+}
+
+.btn-back:hover,
+.btn-cancelmodal:hover {
+    color: #000;
+}
+
+.upload-title {
+    color: var(--Black, #2d2d2d);
+    font-family: "Noto Sans Thai";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 25px;
+    /* 156.25% */
+}
+
+.display-point {
+    color: var(--Black, #2d2d2d);
+    font-family: "Noto Sans Thai";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    /* 156.25% */
+}
+
+.point {
+    color: var(--Black, #2d2d2d);
+
+    /* Desktop/UL H3 SemiBold 20px - 30px */
+    font-family: "Noto Sans Thai";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    /* 150% */
+}

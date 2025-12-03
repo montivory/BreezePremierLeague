@@ -1,0 +1,66 @@
+.content-block {
+  flex: 1 !important;
+  flex-direction: column;
+  display: flex;
+  padding-top: 32px;
+}
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.nav.nav-pills {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  border-bottom: 1px solid #fff;
+}
+.nav-link {
+  color: var(--White, #fff);
+  font-weight: 400;
+  border-radius: 0;
+  position: relative;
+  background: none;
+  transition: color 0.2s ease;
+  padding: 12px 0;
+  font-size: 16px;
+}
+.nav-link:hover {
+  color: var(--White, #fff);
+  opacity: 0.8;
+}
+.nav-link.active {
+  color: var(--White, #fff);
+  font-weight: 700;
+  background: none;
+}
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 4px;
+  background-color: var(--Breeze-green, #46bdde);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  transition: all 0.3s ease;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: var(--White, #fff);
+  background: none !important;
+}
+.instructions-title {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+}
+.instructions-detail {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}

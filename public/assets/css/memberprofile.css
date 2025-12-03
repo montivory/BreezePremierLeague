@@ -1,0 +1,64 @@
+body {
+    background-color: #ffe6af;
+}
+.form-control {
+    border-color: #73706e !important;
+}
+.form-control.disabled {
+    background-color: #dbdcdd;
+    border-color: #dbdcdd !important;
+}
+.profile-title {
+    font-size: 24px;
+    line-height: 35px;
+    margin-top: 30px;
+    font-family: "Noto Sans Thai Semibold" !important;
+}
+.btn-edit {
+    height: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #F15024;
+    color: #F15024;
+    /* background-color: #fff; */
+    font-weight: bold;
+    border-radius: 33px;
+}
+
+.btn-edit:hover {
+    color: #F15024;
+}
+
+.btn-submit {
+    height: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #2161f6;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    color: #fff;
+}
+.btn-logout {
+    border-radius: 43px;
+    border: 1px solid var(--Red, #f00);
+    background: var(--Red, #f00);
+    color: var(--White, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 49px;
+    /* Defult/BUTTON 16px */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    /* line-height: 25px; */
+}
+
+.btn-logout:hover {
+    color: var(--White, #fff);
+}

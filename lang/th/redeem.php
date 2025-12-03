@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'redeemdescription' => 'รายละเอียด',
+    'redeemcondition' => 'เงื่อนไข',
+    'success' => 'เสร็จสิ้น',
+    'pointleft' => 'คงเหลือ :point คะแนน',
+    'confirmredeem' => 'ยืนยันการแลกของรางวัล',
+    'usepoint' => 'จำนวน <span class="point-redeem-display">:point</span> คะแนน',
+    'point' => 'คะแนน',
+    'instock' => 'คงเหลือ :amount/:quantity',
+    'otherprice' => 'ของรางวัลอื่น',
+    'barusepoints' => 'คะแนนที่แลกของรางวัลได้ <span class="point-redeem-display">:point</span>',
+    'barusepoint' => 'คะแนนที่แลกของรางวัลได้ <span class="point-redeem-display">:point</span>',
+    'enoughpoint' => 'คะแนนไม่เพียงพอ',
+    'outofstock' => 'ของรางวัลหมด',
+    'redeembtn' => 'แลกของรางวัล',
+    'popupamount' => 'จำนวน',
+    'popuppoint' => 'คะแนน',
+    'deliveryaddress' => 'ที่อยู่จัดส่ง',
+    'adddeliveryaddress' => 'เพิ่มที่อยู่จัดส่งของรางวัล',
+    'confirmbtn' => 'ยืนยัน',
+    'backbtn' => 'ยกเลิก',
+    'backbtn-success' => 'กลับหน้าแลกของรางวัล',
+    'already' => 'คุณแลกของรางวัลนี้ไปแล้ว',
+    'totalpoint' => '<h3>คะแนนที่แลกของรางวัลได้</h3><h1>:point</h1><h3 class="mb-0">คะแนน</h3>',
+];

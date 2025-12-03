@@ -1,0 +1,170 @@
+/* icon */
+.btn-approve::before {
+  content: "";
+  background-image: url("./../images/icons/approve.svg");
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.btn-reject::before {
+  content: "";
+  background-image: url("./../images/icons/reject.svg");
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.plus-icon::before {
+  content: "";
+  background-image: url("./../images/icons/plus.svg");
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.form-control.is-invalid {
+  border: 1px solid #dc3545 !important;
+}
+
+.zoomist-container {
+  margin-top: 31px;
+}
+
+.row-verify {
+  color: #07b963;
+}
+
+.row-verify > td > .form-control {
+  color: #07b963;
+}
+
+/* .form-control {
+    border: none;
+} */
+
+.slip-preview {
+  height: 500px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.summary {
+  background: #f4f4f4;
+}
+
+.summary-item {
+  height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+.item-select,
+.total-price,
+.point {
+  color: #06c755;
+  /* Desktop/UL Sub-Head Semibold 16px - 25px */
+  font-family: "Noto Sans Thai";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 25px;
+}
+
+.btn {
+  /* Button 16-25 Semibold */
+  font-family: "Noto Sans Thai";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  /* 100% */
+  display: flex;
+  width: 137px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  /* margin-left: 24px;
+            margin-top: 19px; */
+  color: #fff;
+}
+
+.btn-approve {
+  background: #07b963;
+}
+
+.btn-reject {
+  background: #e4002b;
+}
+
+.btn-reject:hover,
+.btn-approve:hover {
+  color: #fff;
+}
+
+.btn-back,
+.btn-cancelmodal {
+  border: 1px solid var(--System-Semi-Black, #151515);
+  background: var(--Color-Stlye-Primary-White-100, #fff);
+  color: #000;
+}
+
+.btn-back:hover,
+.btn-cancelmodal:hover {
+  color: #000;
+}
+
+.approve-title {
+  text-align: center;
+  color: #000;
+  text-align: center;
+
+  /* H3 20-30 Semibold */
+  font-family: "Noto Sans Thai";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  /* 150% */
+}
+
+.approve-detail {
+  color: #000;
+
+  /* Body Regular 16-25 */
+  font-family: "Noto Sans Thai";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  /* 156.25% */
+}
+.btn-newrow {
+  color: var(--System-Semi-Black, #151515);
+  /* Button 16-25 Semibold */
+  font-family: Prompt;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px; /* 100% */
+  display: flex;
+  width: 155px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-newrow:hover {
+  color: var(--System-Semi-Black, #151515);
+}
+
+.list-group-item {
+  cursor: pointer;
+}

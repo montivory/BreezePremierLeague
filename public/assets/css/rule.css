@@ -1,0 +1,38 @@
+.rule-title {
+  text-align: center;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+}
+.rule-section {
+  padding: 16px 10px 20px 10px;
+}
+.btn-main,
+.btn-outline {
+  height: 48px;
+}
+.rule-sub-title {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+}
+.rule-text {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+.border-section {
+  border-radius: 8px;
+  border: 1px solid var(--Breeze-green, #46bdde);
+  padding: 16px;
+  margin: 16px 0;
+}
+.btn-link {
+  color: var(--Breeze-green, #46bdde);
+}
+.btn-link:hover {
+  color: var(--Breeze-green, #46bdde);
+}
+.btn-link::after {
+  background-image: url("../images/icons/right-blue.svg");
+}
