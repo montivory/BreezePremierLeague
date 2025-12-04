@@ -136,7 +136,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="d-grid gap-2 pb-5">
+                        <div class="d-grid gap-2">
                             <button type="button" class="btn btn-main" id="btn-submit"
                                 disabled>@lang('signup.submit')</button>
                         </div>

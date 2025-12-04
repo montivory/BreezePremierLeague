@@ -11,7 +11,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-3 d-flex menu-items">
+        <div class="col-4 d-flex menu-items">
             <a href="javascript:void(0);" link="{{ route('upload') }}"
                 class="d-flex justify-content-center align-items-center @if (Route::currentRouteName() === 'upload') active @endif analytic-link"
                 eventLabel="send receipt-{{ route('upload') }}">

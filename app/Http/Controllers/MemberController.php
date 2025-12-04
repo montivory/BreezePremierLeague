@@ -437,7 +437,7 @@ class MemberController extends Controller
 
     public function topspender(Request $request)
     {
-        $totalTopspender = $this->memberService->getTopSpender();
+        $totalTopspender = $this->memberService->getTopSpender() ?? [];
         $member = Session::get('member');
         $point = DB::table('topspenders')
             ->select('point')

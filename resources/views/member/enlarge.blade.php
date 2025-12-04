@@ -15,7 +15,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/zoomist.css') }}" type="text/css">
     <style>
         .slip-preview {
-            max-height: auto!important ;
+            max-height: auto !important;
+        }
+
+        .content-block {
+            padding-bottom: 64px;
         }
     </style>
 @endsection
@@ -26,21 +30,19 @@
 @endsection
 @section('content')
     <div class="content-block">
-        <div class="row">
-            <div class="col-12">
-                <div class="zoomist-container">
-                    <div class="zoomist-wrapper">
-                        <!-- zoomist-image is required -->
-                        <div class="zoomist-image">
-                            <!-- you can add anything you want to zoom here. -->
-                            <img src="{{ $url }}" class="slip-preview w-100" />
-                        </div>
+        <div class="col-12">
+            <div class="zoomist-container">
+                <div class="zoomist-wrapper">
+                    <!-- zoomist-image is required -->
+                    <div class="zoomist-image">
+                        <!-- you can add anything you want to zoom here. -->
+                        <img src="{{ $url }}" class="slip-preview w-100" />
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row mt-5">
-            <div class="col-12 px-5">
+        <div class="mt-4">
+            <div class="col-12 px-4">
                 <a href="javascript:void(0);" class="btn btn-outline">
                     ย้อนกลับ
                 </a>
@@ -63,8 +65,8 @@
         });
     </script>
     <script type="text/javascript">
-        $(function(){
-            $('.btn-outline').on('click',function(){
+        $(function() {
+            $('.btn-outline').on('click', function() {
                 window.close();
             });
         })

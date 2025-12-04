@@ -60,7 +60,7 @@
                                             <h3 class="mb-0">{{ $index + 1 }}.
                                                 {{ maskName($spender->firstname) }}
                                             </h3>
-                                            <h4 class="mb-0">{{ number_format($spender->point) }} บาท</h4>
+                                            <h4 class="mb-0">{{ number_format($spender->point, 2, '.', ',') }} บาท</h4>
                                         </div>
                                         @if (count($top) > 1 && $index < count($top) - 1)
                                             <div class="line mt-2 mb-3"></div>
@@ -69,11 +69,11 @@
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between px-4">
                                     <div>
-                                        คุณมียอดสะสมในรอบนี้
+                                        คุณมียอดสะสม
                                     </div>
                                     <div class="point-text">
                                         @if (isset($point[0]))
-                                            {{ number_format($point[0], 0, ',') }}
+                                            {{ number_format($point[0], 2, '.', ',') }}
                                         @else
                                             0
                                         @endif บาท
