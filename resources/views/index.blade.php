@@ -66,12 +66,18 @@
                         <li>สำหรับทานที่ร้านหรือซื้อกลับบ้าน ณ โลตัสสาขาที่ร่วมรายการเท่านั้น</li>
                     </ul>
                 </div> --}}
-                <div class="my-4 mx-4">
+                {{-- <div class="my-4 mx-4">
                     <button class="btn btn-main analytic-link w-100" id="link-signup"
                         link="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id={{ config('app.line_login_clientid') }}&redirect_uri={{ urlencode(config('app.line_login_callback_url')) }}&state={{ csrf_token() }}&scope=profile%20openid%20email%20phone"
                         eventLabel="sign up with Line-https://line.me">
                         เข้าร่วมกิจกรรม
                     </button>
+                </div> --}}
+                <div class="d-grid gap-3 regis-section">
+                    <button class="btn btn-main analytic-link" id="link-signup" link="{{ route('signup') }}"
+                        eventLabel="sign up with Line-https://line.me">@lang('index.registerlink')</button>
+                    <button class="btn btn-main analytic-link" id="link-signin" link="{{ route('signin') }}"
+                        eventLabel="sign in">@lang('index.signin')</button>
                 </div>
                 <div class="mx-auto">
                     <button type="button" class="btn btn-link analytic-link" link="{{ route('term') }}"

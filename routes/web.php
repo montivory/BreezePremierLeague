@@ -24,8 +24,9 @@ Route::prefix('/')->middleware(['checkLive'])->group(function () {
     Route::get('/signup', [WebController::class, 'signup'])->name('signup');
     Route::post('/createmember', [WebController::class, 'storemember'])->name('create.member');
     Route::post('/creatememberpassword', [WebController::class, 'storememberpassword'])->name('create.member.password');
-    Route::get('/lineauth', [LineController::class, 'auth'])->name('lineauth');
     Route::post('/storesignin', [WebController::class, 'storesignin'])->name('member.storesignin');
+    Route::get('/signin', [WebController::class, 'signin'])->name('signin');
+    Route::get('/lineauth', [LineController::class, 'auth'])->name('lineauth');
     Route::post('/memberauth', [WebController::class, 'auth'])->name('memberauth');
     Route::get('/term', [WebController::class, 'term'])->name('term');
     Route::prefix('member')->middleware(['ensureSignin'])->group(function () {

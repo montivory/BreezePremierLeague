@@ -50,13 +50,31 @@
                                 @lang('profile.lastnameerror')
                             </div>
                         </div>
-                        <div class="mb-4">
+                        <div class="mb-3">
                             <label for="phone" class="form-label">@lang('signup.phonelabel')</label>
-                            <input type="text" class="form-control validate" name="phone" id="phone"
+                            <input type="tel" class="form-control validate" name="phone" id="phone"
                                 placeholder="@lang('signup.phoneplaceholder')" validatetype="phone">
                             <div class="invalid-feedback" id="phone-feedback">
                                 @lang('signup.phoneerror')
                             </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">@lang('profile.password')</label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                placeholder="@lang('profile.password')">
+                            <div id="passwordHelper" class="form-text">
+                                <ul>
+                                    <li class="text-white">@lang('profile.passwordhelper.min')</li>
+                                    <li class="text-white">@lang('profile.passwordhelper.mix')</li>
+                                    <li class="text-white">@lang('profile.passwordhelper.number')</li>
+                                </ul>
+                            </div>
+                            <div class="invalid-feedback" id="password-feedback"></div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password_confirmation" class="form-label">@lang('profile.passwordconfirm')</label>
+                            <input type="password" class="form-control" name="password_confirmation"
+                                id="password_confirmation" placeholder="@lang('profile.passwordconfirm')">
                         </div>
                         <div class="mb-3">
                             <h6>ที่อยู่</h6>
@@ -157,13 +175,14 @@
 
                     setTimeout(() => {
                         $.ajax({
-                            url: '{{ route('create.member') }}',
+                            url: '{{ route('create.member.password') }}',
                             method: 'POST',
                             data: {
-                                lineid: '{{ $lineid }}',
                                 firstname: $('#firstname').val(),
                                 lastname: $('#lastname').val(),
                                 phone: $('#phone').val(),
+                                password: $('#password').val(),
+                                password_confirmation: $('#password_confirmation').val(),
                                 address: $('#address').val(),
                                 road: $('#road').val(),
                                 province: $('#province').val(),
@@ -176,12 +195,29 @@
                         }).done(function(response) {
                             window.location.href = "{{ route('member') }}"
                         }).fail((response) => {
+                            $('#password-feedback').html('');
+                            let messages = response.responseJSON.messages;
+                            if (messages.password !== undefined) {
+                                $('#password').addClass('is-invalid');
+                                let messageError = `<ul>`;
+                                $.each(messages.password, function(i, v) {
+                                    messageError +=
+                                        `<li class='text-danger'>${v}</li>`;
+                                })
+                                messageError += `</ul>`;
+                                $('#password-feedback').append(messageError);
+                                $('html, body').animate({
+                                    scrollTop: $('#password').offset()
+                                        .top - 300
+                                }, 300);
+                            }
                             $('#btn-submit').prop('disabled', false);
                             $('#btn-submit').html(`ลงทะเบียน`);
                         })
                     }, 1000);
                 }
             });
+
             $('.validate').on('change', function() {
                 let varName = '';
                 switch ($(this).attr('validatetype')) {
@@ -248,12 +284,20 @@
                     result = false;
                     $('#phone-feedback').text('@lang('signup.phoneerrorduplicate')');
                     $('#phone').addClass('is-invalid');
+                    $('html, body').animate({
+                        scrollTop: $('#phone').offset()
+                            .top - 300
+                    }, 300);
                 } else {
                     $('#phone').removeClass('is-invalid');
                 }
             }).fail(() => {
                 $('#phone-feedback').text('@lang('signup.phoneerrorduplicate')');
                 $('#phone').addClass('is-invalid');
+                $('html, body').animate({
+                    scrollTop: $('#phone').offset()
+                        .top - 300
+                }, 300);
             })
             return result;
         }

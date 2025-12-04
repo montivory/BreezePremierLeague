@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use App\Models\MemberAccount;
+use App\Models\MemberPoint;
 use App\Models\Slip;
 use App\Models\SlipItem;
 use App\Models\MemberTransaction;
@@ -39,6 +40,59 @@ class WebController extends Controller
             $notshow = false;
         }
         return view('index', ['notshow' => $notshow]);
+    }
+
+    public function signin(Request $request)
+    {
+        return view('signin');
+    }
+
+    public function storesignin(Request $request)
+    {
+        $validatorRule = [];
+        $validatorRule['phone'] = ['required', 'string'];
+        $validatorRule['password'] = ['required', 'string'];
+        $validator = Validator::make($request->all(), $validatorRule);
+        if ($validator->fails()) {
+            return response()->json([
+                'result' => false,
+                'messages' => $validator->errors(),
+            ], 400);
+        }
+        //check duplicate account
+        $phone = filterChar($request->phone, 'phone');
+        $account = MemberAccount::where('phone', $phone)
+            ->where('application', config('app.name'))
+            ->where('type', 'password')
+            ->where('verify', true)
+            ->first();
+        if (!$account) {
+            return response()->json([
+                'result' => false,
+                'messages' => [
+                    'signin' => ['เบอร์โทรศัพท์ไม่ถูกต้อง'],
+                ],
+            ], 400);
+        }
+        if (!Hash::check($request->password, $account->password)) {
+            return response()->json([
+                'result' => false,
+                'messages' => [
+                    'signin' => ['รหัสผ่านไม่ถูกต้อง'],
+                ],
+            ], 400);
+        }
+        $member = Member::find($account->member);
+        $member->point = 0;
+        $memberPoint = MemberPoint::where('member', $member->id)
+            ->where('application', config('app.name'))
+            ->first();
+        if ($memberPoint) {
+            $member->point = $memberPoint->point;
+        }
+        session(['member' => $member]);
+        addMemberHistory($member->id, 'member', 'signin via line');
+        return ['result' => true];
     }
 
     public function signup(Request $request)
@@ -122,8 +176,7 @@ class WebController extends Controller
             'อุทัยธานี',
             'อุบลราชธานี',
         ];
-        $line = Session::get('tempmember');
-        return view('signup', ['lineid' => $line->sub, 'provinces' => $provinces]);
+        return view('signup', ['provinces' => $provinces]);
     }
 
     public function storemember(Request $request)
@@ -209,6 +262,10 @@ class WebController extends Controller
         $account->save();
         $this->memberService->memberAddress($member, $request);
         $member->point = $this->memberService->memberPoint($member->id, 'init');
+        $gigya = createGigyaData($request);
+        if (isset($gigya->unileverId) && $gigya->unileverId != '') {
+            setcookie("UnileverId", $gigya->unileverId, time() + 30 * 24 * 60 * 60, "/", "", false, false);
+        }
         Session::forget('tempmember');
         Session::put('member', $member);
         addMemberHistory($member->id, 'member', 'signup new member');
@@ -220,91 +277,8 @@ class WebController extends Controller
         return $member;
     }
 
-    // public function sendEmailForgotPassword(Request $request)
-    // {
-    //     $memberA = MemberAccount::where('email', $request->email)
-    //         ->where('type', 'password')
-    //         ->where('application', config('app.name'))
-    //         ->first();
-    //     if (!$memberA) {
-    //         return redirect()->route('forgot')->with('error', 'ไม่พบ email ในระบบ');
-    //     }
-    //     $memberA->token = str_replace('-', '', Str::uuid());
-    //     $memberA->tokendate = Carbon::now()->toDateTimeString();
-    //     $memberA->save();
-    //     $member = Member::find($memberA->member);
-    //     Mail::to($request->email)->send(new Forgotpassword($member, $memberA));
-    //     return redirect()->route('forgot')->with('success', 'ส่ง email สำหรับ recovery password เรียบร้อยแล้ว.โปรดตรวจสอบ email.');
-    // }
-
     public function term(Request $request)
     {
         return view('term', ['term' => $request->term]);
-    }
-
-    public function upload(Request $request)
-    {
-        return view('upload', ['transactions' => []]);
-    }
-
-    public function enlarge(Request $request)
-    {
-        return view('member.enlarge', ['url' => $request->url]);
-    }
-
-    public function storeupload(Request $request)
-    {
-        $slipId = Str::uuid();
-        $uploadedFile = $request->file('slip');
-        $extension = $uploadedFile->getClientOriginalExtension();
-        $filename = $slipId . '.' . $extension;
-        if (!Storage::disk('azure')->putFileAs(config('app.azurepath'), $uploadedFile, $filename)) {
-            return ["result" => false];
-        }
-        $data = json_decode($request->data);
-        $total = 0;
-        foreach ($data->products as $product) {
-            if (filter_var($product->verify, FILTER_VALIDATE_BOOLEAN)) {
-                $total = $total + intval($product->total);
-            }
-        }
-        $slip = new Slip;
-        $slip->id = $slipId;
-        $slip->receiptno = $data->receiptNo;
-        $slip->ocrmerchantname = $data->merchantName;
-        $slip->merchantname = $data->merchantName;
-        $slip->datetime = $data->dateTime;
-        $slip->total = $total;
-        $slip->point = floor(intval($total) / intval(config('app.bathperpoint')));
-        $slip->status = 'process';
-        $slip->application = config('app.name');
-        $slip->member = Session::get('member')->id;
-        $slip->slipname = $filename;
-        $slip->ocrreceiptno = $data->receiptNo;
-        $slip->ocrtotal = $total;
-        $slip->is_valid = filter_var($data->isValid, FILTER_VALIDATE_BOOLEAN);
-        $slip->save();
-        foreach ($data->products as $product) {
-            $slipItem = new SlipItem;
-            $slipItem->name = $product->productName;
-            $slipItem->amount = intval($product->amount);
-            $slipItem->price = $product->total;
-            $slipItem->verify = filter_var($product->verify, FILTER_VALIDATE_BOOLEAN);
-            $slipItem->slip = $slipId;
-            $slipItem->ocrname = $product->productName;
-            $slipItem->ocramount = intval($product->amount);
-            $slipItem->ocrprice = $product->total;
-            $slipItem->ocrverify = filter_var($product->verify, FILTER_VALIDATE_BOOLEAN);
-            $slipItem->application = config('app.name');
-            $slipItem->save();
-        }
-        //add transaction
-        $memberTransaction = new MemberTransaction;
-        $memberTransaction->member = Session::get('member')->id;
-        $memberTransaction->slip = $slip->id;
-        $memberTransaction->application = config('app.name');
-        $memberTransaction->save();
-        addMemberHistory(Session::get('member')->id, 'member', 'upload slip');
-        return true;
     }
 }
