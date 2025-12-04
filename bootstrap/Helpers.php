@@ -234,8 +234,8 @@ if (!function_exists('createGigyaData')) {
                         "x-api-key: " . config('app.gigya_token'),
                         'Content-Type: application/json',
                     ),
-                    CURLOPT_PROXY => 'http://10.102.4.5:3128',
-                    CURLOPT_NOPROXY => 'localhost,127.0.0.1,10.55.6.4,10.54.7.5,*.blob.core.windows.net',
+                    // CURLOPT_PROXY => 'http://10.102.4.5:3128',
+                    // CURLOPT_NOPROXY => 'localhost,127.0.0.1,10.55.6.4,10.54.7.5,*.blob.core.windows.net',
                 ));
 
                 $response = curl_exec($curl);
