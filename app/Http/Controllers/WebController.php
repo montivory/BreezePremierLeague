@@ -33,6 +33,10 @@ class WebController extends Controller
 
     public function index(Request $request)
     {
+        $cmember = session('member');
+        if ($cmember) {
+            return redirect()->route('member');
+        }
         $notshow = $request->cookie('notshow_breeze2025YearEnd');
         if ($notshow === 'true') {
             $notshow = true;
