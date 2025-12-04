@@ -5,7 +5,7 @@
                 <div class="col-md-4 col-12 mx-auto d-flex flex-row align-items-center">
                     <div class="col-2"></div>
                     <div class="col-8">
-                        <img src="{{ asset('assets/images/Logo/logo.svg') }}" class="d-block mx-auto logo" />
+                        <img src="{{ asset('assets/images/logo/logo.svg') }}" class="d-block mx-auto logo" />
                     </div>
                     <div class="col-2 text-center">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

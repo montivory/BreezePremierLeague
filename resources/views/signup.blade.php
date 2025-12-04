@@ -208,7 +208,7 @@
                                 $('#password-feedback').append(messageError);
                                 $('html, body').animate({
                                     scrollTop: $('#password').offset()
-                                        .top - 300
+                                        .top - 100
                                 }, 300);
                             }
                             $('#btn-submit').prop('disabled', false);
@@ -286,7 +286,7 @@
                     $('#phone').addClass('is-invalid');
                     $('html, body').animate({
                         scrollTop: $('#phone').offset()
-                            .top - 300
+                            .top - 100
                     }, 300);
                 } else {
                     $('#phone').removeClass('is-invalid');
@@ -296,7 +296,7 @@
                 $('#phone').addClass('is-invalid');
                 $('html, body').animate({
                     scrollTop: $('#phone').offset()
-                        .top - 300
+                        .top - 100
                 }, 300);
             })
             return result;
