@@ -17,7 +17,7 @@
 @section('aascript')
     digitalData.page.category.pageType = "Register page";
     digitalData.page.attributes.contentType = "Submission";
-    digitalData.page.attributes.articleName = "ลงทะเบียนกิจกรรม";
+    digitalData.page.attributes.articleName = "ลงทะเบียน";
 @endsection
 @section('content')
     <x-header :url="route('home')" />

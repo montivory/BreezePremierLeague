@@ -16,7 +16,8 @@
                     .test(a.substr(0, 4))) {
                     check = true;
                 }
-            })(navigator.userAgent || navigator.vendor || window.opera);
+            })
+            (navigator.userAgent || navigator.vendor || window.opera);
             return check;
         }
         var channelVal;
@@ -70,13 +71,13 @@
         digitalData.page.pageInfo.pageName = "";
         digitalData.page.pageInfo.language = "th";
         digitalData.page.category.subCategory1 = "unileverprokhum";
-        digitalData.page.category.subCategory3 = "Promotion";
+        digitalData.page.category.subCategory3 = "Gamification";
         digitalData.page.attributes.contentType = "Submission";
-        digitalData.page.attributes.articleName = "กิจกรรมแลกคูปอง KFC กับวาสลีนและซิตร้า";
-        digitalData.page.attributes.brandCategory = 'beauty & wellbeing';
+        digitalData.page.attributes.articleName = "Breeze 2025 Year End dCom";
+        digitalData.page.attributes.brandCategory = 'home care';
         digitalData.page.attributes.country = 'th';
-        digitalData.page.attributes.globalBrand = 'Unilever Brand Range';
-        digitalData.page.attributes.localBrand = 'Unilever Brand Range';
+        digitalData.page.attributes.globalBrand = 'Breeze';
+        digitalData.page.attributes.localBrand = 'Breeze';
         digitalData.trackingInfo.tool[0].id = "G-NFXLTSYDQZ";
         digitalData.siteInfo.internalDomain = "www.unileverprokhum.com";
         @yield('aascript')

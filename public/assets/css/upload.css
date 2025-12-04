@@ -303,3 +303,22 @@
   border-radius: 8px;
   border: 1px solid #ccc;
 }
+.upload-text {
+  margin: 32px 0;
+  color: var(--White, #fff);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+.upload-text span {
+  font-size: 20px;
+}
+.btn-link {
+  color: var(--Breeze-green, #46bdde);
+}
+.btn-link:hover {
+  color: var(--Breeze-green, #46bdde);
+}
+.btn-link::after {
+  background-image: url("../images/icons/right-blue.svg");
+}

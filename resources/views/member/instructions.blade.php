@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/instructions.css') }}" type="text/css">
 @endsection
 @section('aascript')
-    digitalData.page.category.pageType = "Upload instruction page";
+    digitalData.page.category.pageType = "Instruction Page";
     digitalData.page.attributes.contentType = "Submission";
-    digitalData.page.attributes.articleName = "คำแนะนำการอัพโหลด";
+    digitalData.page.attributes.articleName = "คำแนะนำในการอัปโหลด";
 @endsection
 @section('content')
     <x-header url="{{ route('upload') }}" />

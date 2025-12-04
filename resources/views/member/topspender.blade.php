@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/historyitem.css') }}" type="text/css">
 @endsection
 @section('aascript')
-    digitalData.page.category.pageType = "Topspender page";
+    digitalData.page.category.pageType = "Top spender page";
     digitalData.page.attributes.contentType = "Submission";
     digitalData.page.attributes.articleName = "Top Spender";
 @endsection

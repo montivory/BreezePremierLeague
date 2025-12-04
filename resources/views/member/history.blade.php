@@ -17,7 +17,7 @@
 @section('aascript')
     digitalData.page.category.pageType = "History page";
     digitalData.page.attributes.contentType = "Submission";
-    digitalData.page.attributes.articleName = "ประวัติการส่งใบเสร็จ";
+    digitalData.page.attributes.articleName = "ประวัติการส่งหลักฐาน";
 @endsection
 @section('content')
     <x-header url="{{ route('member') }}" />

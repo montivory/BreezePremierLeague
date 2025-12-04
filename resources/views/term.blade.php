@@ -16,7 +16,7 @@
 @section('aascript')
     digitalData.page.category.pageType = "Term page";
     digitalData.page.attributes.contentType = "Submission";
-    digitalData.page.attributes.articleName = "เงื่อนไขการร่วมกิจกรรมแลกคูปอง KFC กับวาสลีนและซิตร้า";
+    digitalData.page.attributes.articleName = "ข้อตกลงและเงื่อนไข";
 @endsection
 @section('content')
     @php

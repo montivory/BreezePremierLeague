@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/signup.css') }}" type="text/css">
 @endsection
 @section('aascript')
-    digitalData.page.category.pageType = "Sign-in page";
+    digitalData.page.category.pageType = "Sign in page";
     digitalData.page.attributes.contentType = "Submission";
-    digitalData.page.attributes.articleName = "sing in";
+    digitalData.page.attributes.articleName = "เข้าสู่ระบบ";
 @endsection
 @section('content')
     <x-header :url="route('home')" />

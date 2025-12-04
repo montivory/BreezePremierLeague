@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/term.css') }}" type="text/css">
 @endsection
 @section('aascript')
-    digitalData.page.dmpattributes.price = "Freebie Hunter";
-    digitalData.page.dmpattributes.interest = "Brightening, Home Skin Care, Body Serum, Body Lotion";
-    digitalData.page.dmpattributes.purchasedetails = "Buyer, Retailer Lotus, Discount Coupon";
-    digitalData.page.dmpattributes.persona = "Carefree Eaters";
+    digitalData.page.dmpattributes.price= "Freebie Hunter";
+    digitalData.page.dmpattributes.product= "Detergent, Liquid Detergent";
+    digitalData.page.dmpattributes.interest= "Quick Wash";
+    digitalData.page.dmpattributes.purchasedetails= "Buyer, Online Purchase";
+    digitalData.page.dmpattributes.sport= "Football, Football Fans, Soccer Players";
+    digitalData.page.dmpattributes.travel= "Destination_Europe";
 @endsection
 @section('content')
     @if ($message = Session::get('error'))
@@ -32,52 +34,11 @@
                 <div class="text-center">
                     <img src="{{ asset('assets/images/landing.jpg') }}" class="img-fluid w-100" />
                 </div>
-                {{-- <div class="d-grid gap-2 regis-section">
-                    <a class="btn btn-main analytic-link" id="link-signup"
-                        link="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id={{ config('app.line_login_clientid') }}&redirect_uri={{ urlencode(config('app.line_login_callback_url')) }}&state={{ csrf_token() }}&scope=profile%20openid%20email%20phone"
-                        eventLabel="sign up with Line-https://line.me">
-                        <img src="{{ asset('assets/images/click-button.png') }}" class="w-100" />
-                    </a>
-                </div>
-                <div class="d-grid regis-section term-section">
-                    <a href="javascript:void(0);" link="{{ route('term') }}" class="btn btn-main analytic-link"
-                        eventLabel="terms and conditions-{{ route('term') }}">
-                        <img src="{{ asset('assets/images/term.png') }}" class="img-fluid w-100" />
-                    </a>
-                </div>
-                <div class="remark-section pb-5">
-                    <p class="remark">หมายเหตุ</p>
-                    <ul class="remark-list">
-                        <li>สินค้า 1 แถม 1 และสินค้าล้างสต๊อกไม่ร่วมรายการ</li>
-                        <li>ระยะเวลาโปรโมชั่น ลูกค้าซื้อสินค้าและลงทะเบียนได้ตั้งแต่วันที่ 13 พ.ย. 2568 – 10 ธ.ค. 2568</li>
-                        <li>ลูกค้าสามารถแลกคูปองได้ภายใน 15 ธ.ค. 2568 (5 วันหลังสิ้นสุดรายการโปรโมชั่น)</li>
-                        <li>ชุดเมนูที่ร่วมรายการ ได้แก่ ชุดอิ่มคุ้ม 2 ประกอบด้วย ไก่ทอด 2 ชิ้น เฟรนซ์ฟราย ปกติ 1 ชุด
-                            และเป๊ปซี่ 1
-                            แก้ว</li>
-                        <li>สามารถแลกรับโปรโมชั่นนี้ได้ที่แคชเชียร์เท่านั้น ช่องทางการสั่งโดยเครื่องสั่งอาหารอัตโนมัติ
-                            (Kiosk)
-                            ไม่ร่วมรายการ</li>
-                        <li>ไม่สามารถใช้ร่วมกับคูปองส่วนลดหรือโปรโมชั่นอื่นได้</li>
-                        <li>คูปองมีจำนวนจำกัด 15,000 สิทธิ์ โดยนับจากจำนวนคูปองที่มีการนำมาแลกที่ร้าน KFC เท่านั้น</li>
-                        <li>อาหารในภาพจัดตกแต่งเพื่อการโฆษณาเท่านั้น</li>
-                        <li>ไม่สามารถเปลี่ยนขนาดหรือชนิดของสินค้าในชุดได้</li>
-                        <li>ขอสงวนสิทธิ์การเลือกชิ้นไก่และการเปลี่ยนแปลงเงื่อนไขโดยไม่ต้องแจ้งให้ทราบล่วงหน้า</li>
-                        <li>ไม่สามารถเปลี่ยนหรือทอนเป็นเงินสดได้</li>
-                        <li>สำหรับทานที่ร้านหรือซื้อกลับบ้าน ณ โลตัสสาขาที่ร่วมรายการเท่านั้น</li>
-                    </ul>
-                </div> --}}
-                {{-- <div class="my-4 mx-4">
-                    <button class="btn btn-main analytic-link w-100" id="link-signup"
-                        link="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id={{ config('app.line_login_clientid') }}&redirect_uri={{ urlencode(config('app.line_login_callback_url')) }}&state={{ csrf_token() }}&scope=profile%20openid%20email%20phone"
-                        eventLabel="sign up with Line-https://line.me">
-                        เข้าร่วมกิจกรรม
-                    </button>
-                </div> --}}
                 <div class="d-grid gap-3 regis-section">
                     <button class="btn btn-main analytic-link" id="link-signup" link="{{ route('signup') }}"
-                        eventLabel="sign up with Line-https://line.me">@lang('index.registerlink')</button>
+                        eventLabel="sign up">ใช้งานครั้งแรก / Register</button>
                     <button class="btn btn-main analytic-link" id="link-signin" link="{{ route('signin') }}"
-                        eventLabel="sign in">@lang('index.signin')</button>
+                        eventLabel="sign in">เข้าร่วมกิจกรรม / Log In</button>
                 </div>
                 <div class="mx-auto">
                     <button type="button" class="btn btn-link analytic-link" link="{{ route('term') }}"

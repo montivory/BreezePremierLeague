@@ -16,142 +16,171 @@
 @section('aascript')
     digitalData.page.category.pageType = "Upload page";
     digitalData.page.attributes.contentType = "Submission";
-    digitalData.page.attributes.articleName = "ส่งใบเสร็จ";
+    digitalData.page.attributes.articleName = "ส่งหลักฐานการชำระเงิน";
 @endsection
 @section('content')
     <x-header />
     <div class="content-block">
-        <div class="body-block">
-            <div class="col-12" id="upload-form">
-                <div class="d-flex flex-column">
+        @if (strtotime(config('app.startdate')) < strtotime('2025-12-08 00:00:00'))
+            <div class="col-12 d-flex flex-column">
+                <div>
+                    <img src="{{ asset('assets/images/banner.jpg') }}" class="img-fluid w-100" />
+                </div>
+                <div class="d-flex flex-column px-4 my-5">
                     <div>
-                        <h2 class="upload-title">
-                            ส่งหลักฐานการชำระเงิน
-                        </h2>
+                        <h1 class="upload-title">แคมเปญนี้ยังไม่เริ่ม</h1>
                     </div>
-                    <form id="uploadForm">
-                        <div class="mb-3">
-                            <label class="form-label">Order ID*</label>
-                            <input type="text" class="form-control validate" name="order_id" id="order_id"
-                                placeholder="00000000000000">
-                            <div class="invalid-feedback">
-                                กรุณากรอกรหัส Order ID
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">ยอดสินค้าที่ร่วมรายการ*</label>
-                            <input type="text" class="form-control validate" name="amount" id="amount"
-                                placeholder="0.00">
-                            <div class="invalid-feedback">
-                                กรุณากรอกยอดสินค้าที่ร่วมรายการ
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="merchant_name" class="form-label">ช่องทางการซื้อสินค้า</label>
-                            <select class="form-select" id="merchant_name" name="merchant_name">
-                                <option selected>กรุณาเลือก</option>
-                                <option value="1262">Lazada</option>
-                                <option value="1263">Shopee</option>
-                                <option value="3657">TikTok</option>
-                            </select>
-                        </div>
-
-                        <!-- Upload Button -->
-                        <div class="d-grid gap-2 lucky-link mb-3" id="firstUpload">
-                            <label for="firstname" class="form-label">หลักฐานการสั่งซื้อ*</label>
-                            <a class="btn btn-upload" id="btnUpload" eventLabel="send receipt">
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <span class="add-icon"></span>
-                                    อัปโหลดใบเสร็จ
-                                </div>
-                            </a>
-                            <input type="file" id="slip" name="slip" class="d-none"
-                                accept=".png, .jpg, .jpeg, .heic" />
-                        </div>
-                        <!-- พื้นที่แสดงรูป preview -->
-                        <div id="slippreview" class="mt-3"></div>
-                        <div class="upload-helper">เฉพาะไฟล์ JPG, PNG หรือ HEIC ขนาดไม่เกิน 2 MB</div>
-                        <div class="upload-instructions">
-                            <a href="javascript:void(0);" link="{{ route('instructions') }}"
-                                class="instructions-link analytic-link"
-                                eventLabel="upload instruction-{{ route('instructions') }}">
-                                @lang('upload.moreupload')
-                                <span class="instructions-icon"></span>
-                            </a>
-                        </div>
-                        <button id="btn-submit" type="button" class="btn btn-main w-100" disabled eventLabel="submit">
-                            ส่งข้อมูล
-                        </button>
-                    </form>
+                    <div class="text-center">
+                        <p class="upload-text">เริ่มลงทะเบียนได้ตั้งแต่<br><span>วันที่ 8 ถึง 17 ธันวาคม พ.ศ. 2568</span>
+                        <p>
+                    </div>
+                    <div class="d-grid gap-2 regis-section">
+                        <a href="javascript:void(0);" link="{{ route('member') }}" class="analytic-link btn btn-main"
+                            eventLabel="member-{{ route('member') }}">
+                            กลับหน้าหลัก
+                        </a>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="javascript:void(0);" link="{{ route('term') }}" class="btn btn-link analytic-link"
+                            eventLabel="terms and conditions-{{ route('term') }}">ข้อกำหนดและเงื่อนไขในการเข้าร่วม</a>
+                    </div>
                 </div>
                 <x-member-menu />
             </div>
-            <div class="col-12" style="display:none;" id="upload-success">
-                <div class="upload-success-section">
-                    <div class="d-flex flex-column col-12">
+        @else
+            <div class="body-block">
+                <div class="col-12" id="upload-form">
+                    <div class="d-flex flex-column">
                         <div>
-                            <img src="{{ asset('assets/images/upload/success.svg') }}"
-                                class="d-block mx-auto upload-complete-thumbnail" />
+                            <h2 class="upload-title">
+                                ส่งหลักฐานการชำระเงิน
+                            </h2>
+                        </div>
+                        <form id="uploadForm">
+                            <div class="mb-3">
+                                <label class="form-label">หมายเลขคำสั่งซื้อ*</label>
+                                <input type="text" class="form-control validate" name="order_id" id="order_id"
+                                    placeholder="00000000000000">
+                                <div class="invalid-feedback">
+                                    กรุณากรอกหมายเลขคำสั่งซื้อ
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">ยอดสินค้าที่ร่วมรายการ*</label>
+                                <input type="text" class="form-control validate" name="amount" id="amount"
+                                    placeholder="0.00">
+                                <div class="invalid-feedback">
+                                    กรุณากรอกยอดสินค้าที่ร่วมรายการ
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="merchant_name" class="form-label">ช่องทางการซื้อสินค้า</label>
+                                <select class="form-select" id="merchant_name" name="merchant_name">
+                                    <option selected>กรุณาเลือก</option>
+                                    <option value="1262">Lazada</option>
+                                    <option value="1263">Shopee</option>
+                                    <option value="3657">TikTok</option>
+                                </select>
+                            </div>
+
+                            <!-- Upload Button -->
+                            <div class="d-grid gap-2 lucky-link mb-3" id="firstUpload">
+                                <label for="firstname" class="form-label">หลักฐานการสั่งซื้อ*</label>
+                                <a class="btn btn-upload" id="btnUpload" eventLabel="send receipt">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <span class="add-icon"></span>
+                                        อัปโหลดใบเสร็จ
+                                    </div>
+                                </a>
+                                <input type="file" id="slip" name="slip" class="d-none"
+                                    accept=".png, .jpg, .jpeg, .heic" />
+                            </div>
+                            <!-- พื้นที่แสดงรูป preview -->
+                            <div id="slippreview" class="mt-3"></div>
+                            <div class="upload-helper">เฉพาะไฟล์ JPG, PNG หรือ HEIC ขนาดไม่เกิน 2 MB</div>
+                            <div class="upload-instructions">
+                                <a href="javascript:void(0);" link="{{ route('instructions') }}"
+                                    class="instructions-link analytic-link"
+                                    eventLabel="upload instruction-{{ route('instructions') }}">
+                                    @lang('upload.moreupload')
+                                    <span class="instructions-icon"></span>
+                                </a>
+                            </div>
+                            <button id="btn-submit" type="button" class="btn btn-main w-100" disabled eventLabel="submit">
+                                ส่งข้อมูล
+                            </button>
+                        </form>
+                    </div>
+                    <x-member-menu />
+                </div>
+                <div class="col-12" style="display:none;" id="upload-success">
+                    <div class="upload-success-section">
+                        <div class="d-flex flex-column col-12">
+                            <div>
+                                <img src="{{ asset('assets/images/upload/success.svg') }}"
+                                    class="d-block mx-auto upload-complete-thumbnail" />
+                            </div>
+                            <div>
+                                <h1 class="upload-complete-title">อัปโหลดเสร็จสิ้น</h1>
+                            </div>
+                            <div>
+                                <p class="upload-complete-detail">
+                                    ได้รับใบเสร็จของท่านเรียบร้อยแล้ว<br>แอดมินจะทำการตรวจสอบภายใน 1-3
+                                    วันทำการ<br>(เวลาทำการ
+                                    จ. - ศ. เวลา 9.00 – 17.00 น.)
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex flex-column">
+                            <div class="d-grid gap-2 lucky-link send-more-receipt">
+                                <a href="javascript:void(0);" link="{{ route('upload') }}"
+                                    class="btn btn-main analytic-link" eventLabel="upload more-{{ route('upload') }}">
+                                    ส่งเพิ่ม
+                                </a>
+                            </div>
+                            <div class="text-center">
+                                <a href="javascript:void(0);" link="{{ route('member') }}" class="analytic-link tohome"
+                                    eventLabel="back to home page-{{ route('member') }}">
+                                    กลับหน้าแรก
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" style="display:none;" id="upload-fail">
+                    <div class="upload-fail-section">
+                        <div>
+                            <img src="{{ asset('assets/images/upload/fail.svg') }}"
+                                class="d-block mx-auto upload-fail-thumbnail" />
                         </div>
                         <div>
-                            <h1 class="upload-complete-title">อัปโหลดเสร็จสิ้น</h1>
-                        </div>
-                        <div>
-                            <p class="upload-complete-detail">
-                                ได้รับใบเสร็จของท่านเรียบร้อยแล้ว<br>แอดมินจะทำการตรวจสอบภายใน 1-3 วันทำการ<br>(เวลาทำการ
-                                จ. - ศ. เวลา 9.00 – 17.00 น.)
+                            <h2 class="fail-title">อัปโหลดไม่สำเร็จ</h2>
+                            <p class="fail-description">
+                                สอบถามผ่านช่องทางข้อความของเพจ<br>
+                                Facebook : Breeze Thailand<br>
+                                ในวันจันทร์ ถึง ศุกร์ และในเวลาทำการ 10.00 น. ถึง 19.00 น
                             </p>
                         </div>
-                    </div>
-                    <div class="col-12 d-flex flex-column">
-                        <div class="d-grid gap-2 lucky-link send-more-receipt">
-                            <a href="javascript:void(0);" link="{{ route('upload') }}" class="btn btn-main analytic-link"
-                                eventLabel="upload more-{{ route('upload') }}">
-                                ส่งเพิ่ม
-                            </a>
-                        </div>
-                        <div class="text-center">
-                            <a href="javascript:void(0);" link="{{ route('member') }}" class="analytic-link tohome"
-                                eventLabel="back to home page-{{ route('member') }}">
-                                กลับหน้าแรก
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12" style="display:none;" id="upload-fail">
-                <div class="upload-fail-section">
-                    <div>
-                        <img src="{{ asset('assets/images/upload/fail.svg') }}"
-                            class="d-block mx-auto upload-fail-thumbnail" />
-                    </div>
-                    <div>
-                        <h2 class="fail-title">อัปโหลดไม่สำเร็จ</h2>
-                        <p class="fail-description">
-                            สอบถามผ่านช่องทางข้อความของเพจ<br>
-                            Facebook : Breeze Thailand<br>
-                            ในวันจันทร์ ถึง ศุกร์ และในเวลาทำการ 10.00 น. ถึง 19.00 น
-                        </p>
-                    </div>
-                    <div class="col-12 d-flex flex-column">
-                        <div class="d-grid gap-2 lucky-link send-more-receipt">
-                            <a href="javascript:void(0);" link="{{ route('upload') }}"
-                                class="btn btn-main analytic-link" eventLabel="upload again-{{ route('upload') }}">
-                                ลองอีกครั้ง
-                            </a>
-                        </div>
-                        <div class="text-center">
-                            <a href="javascript:void(0);" link="{{ route('member') }}" class="analytic-link tohome"
-                                eventLabel="back to home page-{{ route('member') }}">
-                                กลับหน้าแรก
-                            </a>
+                        <div class="col-12 d-flex flex-column">
+                            <div class="d-grid gap-2 lucky-link send-more-receipt">
+                                <a href="javascript:void(0);" link="{{ route('upload') }}"
+                                    class="btn btn-main analytic-link" eventLabel="upload again-{{ route('upload') }}">
+                                    ลองอีกครั้ง
+                                </a>
+                            </div>
+                            <div class="text-center">
+                                <a href="javascript:void(0);" link="{{ route('member') }}" class="analytic-link tohome"
+                                    eventLabel="back to home page-{{ route('member') }}">
+                                    กลับหน้าแรก
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
     </div>
 @endsection
 @section('script')
@@ -292,7 +321,6 @@
                 $('#firstUpload').addClass('d-none');
                 $('#confirmWrap').removeClass('d-none');
             }
-
         });
 
         const sendImageData = (orderId, amount, slipFile, merchant) => {

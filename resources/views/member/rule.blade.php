@@ -1,12 +1,12 @@
 @extends('layouts.template')
 @section('title')
-    : Rule
+    : Campaign detail
 @endsection
 @section('meta')
-    <meta name="description" content="{{ config('app.webtitle') }} - Rule">
-    <meta name="keywords" content="Rule">
-    <meta property="og:title" content="{{ config('app.webtitle') }} - Rule">
-    <meta property="og:description" content="{{ config('app.webtitle') }} - Rule">
+    <meta name="description" content="{{ config('app.webtitle') }} - Campaign detail">
+    <meta name="keywords" content="Campaign detail">
+    <meta property="og:title" content="{{ config('app.webtitle') }} - Campaign detail">
+    <meta property="og:description" content="{{ config('app.webtitle') }} - Campaign detail">
     <meta property="og:image" content="">
     <meta property="twitter:image" content="">
 @endsection
@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/rule.css') }}" type="text/css">
 @endsection
 @section('aascript')
-    digitalData.page.category.pageType = "Rule page";
+    digitalData.page.category.pageType = "Campaign detail page";
     digitalData.page.attributes.contentType = "Submission";
-    digitalData.page.attributes.articleName = "รายละเอียดรางวัลและกติกา";
+    digitalData.page.attributes.articleName = "รายละเอียดกิจกรรม";
 @endsection
 @section('content')
     <x-header />
@@ -40,7 +40,7 @@
                         <div class="rule-text" style="font-size: 12px;">ท่านละ 1 รางวัล รางวัลละ 2 ใบ มูลค่าใบละ 450
                             ปอนด์สเตอร์ลิง<br>(เทียบเท่าประมาณ 18,900 บาท)</div>
                     </div>
-                    <div class="rule-sub-title fs-6">เพียงซื้อสินค้าที่ร่วมรายงานผ่าน Shopee, Lazada หรือ TikTok
+                    <div class="rule-sub-title fs-6">เพียงซื้อสินค้าที่ร่วมรายการผ่าน Shopee, Lazada หรือ TikTok
                         พร้อมส่งหลักฐานที่เว็บไซต์</div>
                 </div>
                 <div class="d-grid gap-2 regis-section mt-4">

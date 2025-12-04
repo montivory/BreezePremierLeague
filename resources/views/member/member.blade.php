@@ -18,7 +18,7 @@
 @section('aascript')
     digitalData.page.category.pageType = "Member page";
     digitalData.page.attributes.contentType = "Submission";
-    digitalData.page.attributes.articleName = "ยอดสั่งซื้อสะสม";
+    digitalData.page.attributes.articleName = "หน้าสมาชิก";
 @endsection
 @section('content')
     <x-header />

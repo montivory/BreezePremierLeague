@@ -22,7 +22,7 @@
 @section('aascript')
     digitalData.page.category.pageType = "Profile page";
     digitalData.page.attributes.contentType = "Submission";
-    digitalData.page.attributes.articleName = "จัดการโปรไฟล์";
+    digitalData.page.attributes.articleName = "หน้าโปรไฟล์";
 @endsection
 @section('content')
     <x-header url="{{ route('member') }}" />

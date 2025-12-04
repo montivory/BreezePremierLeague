@@ -40,7 +40,7 @@ Route::prefix('/')->middleware(['checkLive'])->group(function () {
         Route::get('/profile', [MemberController::class, 'profile'])->name('profile');
         Route::post('/updateprofile', [MemberController::class, 'profilestore'])->name('update.profile');
         Route::get('/instructions', [MemberController::class, 'instructions'])->name('instructions');
-        Route::get('/rule', [MemberController::class, 'rule'])->name('rule');
+        Route::get('/campaign-detail', [MemberController::class, 'rule'])->name('rule');
         Route::get('/signout', [MemberController::class, 'signout'])->name('signout');
     });
 });
