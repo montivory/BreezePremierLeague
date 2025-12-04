@@ -94,11 +94,6 @@
                         เงื่อนไขการร่วมกิจกรรม ‘เชียร์พรีเมียร์ลีกกับบรีสที่ Emirates Stadium’
                     </div>
                     <div class="term-content">
-                        <div>
-                            <h1 class="term-detail">
-                                การร่วมกิจกรรมแลกคูปอง KFC กับวาสลีนและซิตร้า
-                            </h1>
-                        </div>
                         <div class="term-detail">
                             <x-term-detail />
                         </div>
