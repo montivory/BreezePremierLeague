@@ -61,7 +61,7 @@ return [
     'gigya_server' => env('GIGYA_SERVER', 'https://forms-sg.unileversolutions.com/v3'),
     'gigya_token' => env('GIGYA_TOKEN', 'c7oFvcG0Ja8IiUjf2pMjua5xVxGQCLLS8jBJAVoH'),
     'gigya_brandCode' => 'BZ2003',
-    'gigya_campaignId' => 'PN007948',
+    'gigya_campaignId' => 'PN008004',
     //Ocr
     'ocrserver' => env('OCRSERVER'),
     'ocrtoken' => env('OCRTOKEN'),
