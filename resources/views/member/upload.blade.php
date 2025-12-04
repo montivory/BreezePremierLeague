@@ -44,7 +44,7 @@
                             <input type="text" class="form-control validate" name="amount" id="amount"
                                 placeholder="0.00">
                             <div class="invalid-feedback">
-                                กรุณากรอกยอดสินค้า
+                                กรุณากรอกยอดสินค้าที่ร่วมรายการ
                             </div>
                         </div>
 
