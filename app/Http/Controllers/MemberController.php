@@ -446,7 +446,7 @@ class MemberController extends Controller
             ->orderBy('enddate', 'asc')
             ->first();
 
-        $points[] = $point->point ?? 0;
+        $points = $point->point ?? 0;
         return view('member.topspender', ['totalTopspender' => $totalTopspender, 'point' => $points]);
     }
 

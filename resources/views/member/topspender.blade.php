@@ -72,11 +72,7 @@
                                         คุณมียอดสะสม
                                     </div>
                                     <div class="point-text">
-                                        @if (isset($point[0]))
-                                            {{ number_format($point[0], 2, '.', ',') }}
-                                        @else
-                                            0
-                                        @endif บาท
+                                        {{ $point === 0 ? '0' : number_format($point, 2, '.', ',') }} บาท
                                     </div>
                                 </div>
                             </div>
