@@ -21,6 +21,12 @@
         .content-block {
             padding-bottom: 64px;
         }
+
+        .zoomist-container,
+        .zoomist-wrapper,
+        .zoomist-image {
+            touch-action: pan-y !important;
+        }
     </style>
 @endsection
 @section('aascript')
