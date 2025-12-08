@@ -21,7 +21,7 @@
 @section('content')
     <x-header />
     <div class="content-block">
-        @if (strtotime(config('app.startdate')) < strtotime('2025-12-08 00:00:00'))
+        @if (now()->isBefore('2025-12-08 00:00:00'))
             <div class="col-12 d-flex flex-column">
                 <div>
                     <img src="{{ asset('assets/images/banner.jpg') }}" class="img-fluid w-100" />
