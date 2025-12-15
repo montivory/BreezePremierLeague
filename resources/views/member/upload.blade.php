@@ -47,7 +47,7 @@
                 </div>
                 <x-member-menu />
             </div>
-        @else
+        @elseif (now()->isBefore('2025-12-17 23:59:59'))
             <div class="body-block">
                 <div class="col-12" id="upload-form">
                     <div class="d-flex flex-column">
@@ -179,6 +179,27 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        @else
+            <div class="col-12 d-flex flex-column">
+                <div>
+                    <img src="{{ asset('assets/images/banner.jpg') }}" class="img-fluid w-100" />
+                </div>
+                <div class="d-flex flex-column px-4 my-5">
+                    <div>
+                        <h1 class="upload-title">กิจกรรมจบแล้ว</h1>
+                    </div>
+                    <div class="text-center">
+                        <p class="upload-text mt-4 mb-0">ประกาศผลผู้ที่มียอดการซื้อสะสม<br>สูงสุดตลอดทั้งรายการ<br>ในวันที่
+                            20
+                            ธันวาคม 2568</p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="javascript:void(0);" link="{{ route('term') }}" class="btn btn-link analytic-link"
+                            eventLabel="terms and conditions-{{ route('term') }}">ข้อกำหนดและเงื่อนไขในการเข้าร่วม</a>
+                    </div>
+                </div>
+                <x-member-menu />
             </div>
         @endif
     </div>

@@ -4,16 +4,12 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use App\Models\MemberAccount;
 use App\Models\MemberPoint;
-use App\Models\Slip;
-use App\Models\SlipItem;
-use App\Models\MemberTransaction;
 use App\Services\MemberService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules\Password;
 
 
@@ -42,6 +38,9 @@ class WebController extends Controller
             $notshow = true;
         } else {
             $notshow = false;
+        }
+        if (now()->isAfter('2025-12-19 23:59:59')) {
+            return redirect()->route('annoucement');
         }
         return view('index', ['notshow' => $notshow]);
     }
@@ -284,5 +283,11 @@ class WebController extends Controller
     public function term(Request $request)
     {
         return view('term', ['term' => $request->term]);
+    }
+
+    public function annoucement(Request $request)
+    {
+        $totalTopspender = $this->memberService->getTopSpender() ?? [];
+        return view('annoucement', ['totalTopspender' => $totalTopspender]);
     }
 }

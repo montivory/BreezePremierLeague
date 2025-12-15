@@ -29,6 +29,7 @@ Route::prefix('/')->middleware(['checkLive'])->group(function () {
     Route::get('/lineauth', [LineController::class, 'auth'])->name('lineauth');
     Route::post('/memberauth', [WebController::class, 'auth'])->name('memberauth');
     Route::get('/term', [WebController::class, 'term'])->name('term');
+    Route::get('/annoucement', [WebController::class, 'annoucement'])->name('annoucement');
     Route::prefix('member')->middleware(['ensureSignin'])->group(function () {
         Route::get('/', [MemberController::class, 'index'])->middleware(['disableBack'])->name('member');
         Route::get('/upload', [MemberController::class, 'upload'])->name('upload');

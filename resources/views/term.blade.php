@@ -22,7 +22,8 @@
     @php
         $previousUrl = url()->previous();
         $previousPath = parse_url($previousUrl, PHP_URL_PATH);
-        $goTo = $previousPath === '/' || $previousPath === '/home' ? 'home' : 'member';
+        $goTo =
+            $previousPath === '/' || $previousPath === '/home' || $previousPath === '/annoucement' ? 'home' : 'member';
     @endphp
 
     <x-header url="{{ route($goTo) }}" />
